@@ -1,30 +1,31 @@
 # 图3-1-3 matplotlib带标记的曲线图绘制案例
 
 ```python
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+import matplotlib as mpl
+mpl.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
+mpl.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+plt.style.use('default')  # print(plt.style.available)
+
+
+df = pd.read_csv("MappingAnalysis_Data.csv")
+
+df1 = df[df.variable == '0%(Control)']
+df2 = df[df.variable == '1%']
+df3 = df[df.variable == '5%']
+df4 = df[df.variable == '15%']
+
+# =============================================================================
+colors = ['# e41a1c', '# 377eb8', '# 4daf4a', '# 984ea3']
+markers = ['o', 's', 'H', 'D']
+labels = ["0%(Control)", "1%", "5%", "15%"]
+group = ["0%(Control)", "1%", "5%", "15%"]  # np.unique(df.variable)
+
+df
 
-import matplotlib as mpl
-mpl.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
-mpl.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
-plt.style.use('default')  # print(plt.style.available)
-
-
-df = pd.read_csv("MappingAnalysis_Data.csv")
-
-df1 = df[df.variable == '0%(Control)']
-df2 = df[df.variable == '1%']
-df3 = df[df.variable == '5%']
-df4 = df[df.variable == '15%']
-
-# =============================================================================
-colors = ['# e41a1c', '# 377eb8', '# 4daf4a', '# 984ea3']
-markers = ['o', 's', 'H', 'D']
-labels = ["0%(Control)", "1%", "5%", "15%"]
-group = ["0%(Control)", "1%", "5%", "15%"]  # np.unique(df.variable)
-
-df
 ```
 ```
     Unnamed: 0       Time     variable      value
@@ -44,17 +45,17 @@ df
 ```
 
 ```python
-# ----------------------------(a)-----------------------------------------------
-fig = plt.figure(figsize=(4, 3), dpi=100)
-
-for i in range(0, 4):
-    temp_df = df[df.variable == group[i]]
-    plt.plot(temp_df.Time, temp_df.value)
-# plt.plot(df2.Time, df2.value)
-# plt.plot(df3.Time, df3.value)
-# plt.plot(df4.Time, df4.value)
-plt.show()
-# fig.savefig("matplotlib1.pdf")
+# ----------------------------(a)-----------------------------------------------
+fig = plt.figure(figsize=(4, 3), dpi=100)
+
+for i in range(0, 4):
+    temp_df = df[df.variable == group[i]]
+    plt.plot(temp_df.Time, temp_df.value)
+# plt.plot(df2.Time, df2.value)
+# plt.plot(df3.Time, df3.value)
+# plt.plot(df4.Time, df4.value)
+plt.show()
+# fig.savefig("matplotlib1.pdf")
 
 ```
 ```
@@ -62,17 +63,17 @@ plt.show()
 ```
 
 ```python
-# -------------------------------(b)--------------------------------------------
-fig = plt.figure(figsize=(4, 3), dpi=100)
-
-for i in range(0, 4):
-    plt.plot(df[df.variable == group[i]].Time, df[df.variable == group[i]].value,
-             marker=markers[i], markerfacecolor=colors[i], markersize=8, markeredgewidth=0.5,
-             color="k", linewidth=0.5, linestyle="-", label=group[i])
-# plt.legend(loc='upper left',edgecolor='none',facecolor='none')
-plt.show()
-
-# fig.savefig("matplotlib2.pdf")
+# -------------------------------(b)--------------------------------------------
+fig = plt.figure(figsize=(4, 3), dpi=100)
+
+for i in range(0, 4):
+    plt.plot(df[df.variable == group[i]].Time, df[df.variable == group[i]].value,
+             marker=markers[i], markerfacecolor=colors[i], markersize=8, markeredgewidth=0.5,
+             color="k", linewidth=0.5, linestyle="-", label=group[i])
+# plt.legend(loc='upper left',edgecolor='none',facecolor='none')
+plt.show()
+
+# fig.savefig("matplotlib2.pdf")
 
 ```
 ```

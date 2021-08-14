@@ -1,5 +1,5 @@
 
-# 《python数据可视化之美》配套代码
+# 《python数据可视化之美》配套代码的整理修正
 
 《Python数据可视化之美》中相关代码的整理修正，并补充包含运行结果的对应Notebook文件、Markdown文件、opml文件（可导入到workflowy、幕布等大纲笔记软件）。
 
