@@ -3,9 +3,8 @@
 
 《Python数据可视化之美》中相关代码的整理修正，并补充包含运行结果的对应Notebook文件、Markdown文件、opml文件（可导入到workflowy、幕布等大纲笔记软件）。
 
-<p>
-    <img src="https://github.com/Easy-Shu/EasyShu-WeChat/blob/master/%E3%80%90Python%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B9%8B%E7%BE%8E%E3%80%91.png" alt="微信公众号"  width="1000">
-</p>
+![](images/book_cover.jpg)
+
 
 > 本书主要介绍如何使用python中的matplotlib、seaborn、plotnine、basemap等包绘制专业图表。本书先介绍了python语言编程基础知识，以及使用numpy和pandas两个包的数据操作方法；再对比了matplotlib、seaborn和plotnine三个包的图形语法。本书系统性地介绍了使用matplotlib、seaborn和plotnine绘制类别对比型、数据关系型、时间序列型、整体局部型、地理空间型等常见的二维和三维图表的绘制方法。另外，本书也介绍了商业图表与学术图表的规范与差异，以及如何使用matplotlib包绘制HTML交互页面动画。
 >
