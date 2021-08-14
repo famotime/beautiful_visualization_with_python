@@ -1,0 +1,12 @@
+<?xml version='1.0'?>
+<opml version='2.0'>
+  <head>
+    <ownerEmail>
+      quincy.zou@gmail.com
+    </ownerEmail>
+  </head>
+  <body>
+  <outline text="图5-1-6 图片类型散点图&#10;" _note="import numpy as np&#10;import matplotlib.pyplot as plt&#10;from matplotlib.offsetbox import OffsetImage, AnnotationBbox&#10;from PIL import Image&#10;&#10;&#10;def getImage(path, zoom=0.07):&#10;    img = Image.open(path)&#10;    img.thumbnail((512, 512), Image.ANTIALIAS)  # resizes image in-place&#10;    return OffsetImage(img, zoom=zoom)&#10;&#10;&#10;paths = np.arange(1, 11, 1)&#10;&#10;N = 10&#10;x = np.sort(np.random.randn(N))+5&#10;y = np.sort(np.random.randn(N))+5&#10;&#10;fig, ax = plt.subplots(figsize=(4, 4), dpi=100)&#10;ax.scatter(x, y)&#10;&#10;plt.xlabel(&quot;X Axis&quot;, fontsize=12)&#10;plt.ylabel(&quot;Y Axis&quot;, fontsize=12)&#10;plt.yticks(ticks=np.arange(5, 8, 1))&#10;&#10;artists = []&#10;for x0, y0, path in zip(x, y, paths):&#10;    ab = AnnotationBbox(getImage('图片散点图数据集/'+str(path) +&#10;                                 '.jpg'), (x0, y0), frameon=True)&#10;    artists.append(ax.add_artist(ab))&#10;&#10;# fig.savefig(&quot;图片散点图.pdf&quot;)&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 400x400 with 1 Axes&amp;gt;&#10;```&#10;&#10;```python&#10;&#10;```&#10;&#10;" />
+  </outline>
+  </body>
+</opml>

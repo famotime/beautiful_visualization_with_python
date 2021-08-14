@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<opml version='2.0'>
+  <head>
+    <ownerEmail>
+      quincy.zou@gmail.com
+    </ownerEmail>
+  </head>
+  <body>
+  <outline text="图6-1-1 直方图和核密度估计图&#10;" _note="import pandas as pd&#10;# import numpy as np&#10;# import seaborn as sns&#10;from plotnine import *&#10;&#10;&#10;# file = open('Hist_Density_Data.csv') # encoding='utf-8',&#10;df = pd.read_csv('Hist_Density_Data.csv')&#10;# file.close()  # 关闭文件&#10;df&#10;&#10;```&#10;```&#10;       Unnamed: 0  MXSPD   Location&#10;0            8035   15.0   Adelaide&#10;1            8036   18.1   Adelaide&#10;2            8037   16.9   Adelaide&#10;3            8038   18.1   Adelaide&#10;4            8039   16.9   Adelaide&#10;...           ...    ...        ...&#10;12036       20071   26.0  Melbourne&#10;12037       20072   36.9  Melbourne&#10;12038       20073   24.1  Melbourne&#10;12039       20074   15.0  Melbourne&#10;12040       20075   13.0  Melbourne&#10;&#10;[12041 rows x 3 columns]&#10;```&#10;">
+    <outline text="(a2) 多数剧系列直方图&#10;" _note="base_hist = (ggplot(df, aes(x='MXSPD', fill='Location')) +&#10;             # , aes(fill = ..count..) )&#10;             geom_histogram(binwidth=1, alpha=0.55, colour=&quot;black&quot;, size=0.25) +&#10;             scale_fill_hue(s=0.90, l=0.65, h=0.0417, color_space='husl') +&#10;             theme(&#10;    text=element_text(size=13, color=&quot;black&quot;),&#10;    plot_title=element_text(size=15, family=&quot;myfont&quot;,&#10;                            face=&quot;bold.italic&quot;, hjust=.5, color=&quot;black&quot;),  # ,&#10;    legend_position=(0.7, 0.8),&#10;    legend_background=element_blank(),&#10;    aspect_ratio=1.15,&#10;    figure_size=(5, 5)&#10;))&#10;print(base_hist)&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 500x578.734 with 1 Axes&amp;gt;&#10;```&#10;" />
+    <outline text="(b2)多数剧系列核密度估计图&#10;" _note="base_density = (ggplot(df, aes(x='MXSPD',  fill='Location')) +&#10;                geom_density(bw=1, alpha=0.55, colour=&quot;black&quot;, size=0.25, kernel=&quot;gaussian&quot;) +&#10;                scale_fill_hue(s=0.90, l=0.65, h=0.0417, color_space='husl') +&#10;                theme(&#10;    text=element_text(size=13, color=&quot;black&quot;),&#10;    plot_title=element_text(size=15, family=&quot;myfont&quot;,&#10;                            face=&quot;bold.italic&quot;, hjust=.5, color=&quot;black&quot;),  # ,&#10;    legend_position=(0.7, 0.75),&#10;    legend_background=element_blank(),&#10;    aspect_ratio=1.15,&#10;    figure_size=(5, 5)&#10;))&#10;print(base_density)&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 500x578.734 with 1 Axes&amp;gt;&#10;```&#10;&#10;" />
+    </outline>
+  </outline>
+  </body>
+</opml>

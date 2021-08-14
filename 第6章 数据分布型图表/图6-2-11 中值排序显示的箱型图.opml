@@ -1,0 +1,12 @@
+<?xml version='1.0'?>
+<opml version='2.0'>
+  <head>
+    <ownerEmail>
+      quincy.zou@gmail.com
+    </ownerEmail>
+  </head>
+  <body>
+  <outline text="图6-2-11 中值排序显示的箱型图&#10;" _note="import pandas as pd&#10;import numpy as np&#10;import seaborn as sns&#10;import matplotlib.pyplot as plt&#10;from plotnine import *&#10;&#10;&#10;df = pd.read_csv('Boxplot_Sort_Data.csv')&#10;df&#10;&#10;```&#10;```&#10;    class      value&#10;0       n   8.918358&#10;1       n   7.556974&#10;2       n  10.834538&#10;3       n   7.255196&#10;4       n   9.443104&#10;..    ...        ...&#10;395    mm   3.352823&#10;396    mm   3.571257&#10;397    mm   3.932318&#10;398    mm   4.335818&#10;399    mm   3.704272&#10;&#10;[400 rows x 2 columns]&#10;```&#10;&#10;```python&#10;box_plot = (ggplot(df, aes(x='class', y=&quot;value&quot;, fill=&quot;class&quot;))&#10;            + geom_boxplot(show_legend=False)&#10;            + scale_fill_hue(s=0.90, l=0.65, h=0.0417, color_space='husl')&#10;            + theme_matplotlib()&#10;            + theme(  # legend_position='none',&#10;    text=element_text(size=12, colour=&quot;black&quot;),&#10;    aspect_ratio=1.05,&#10;    dpi=100,&#10;    figure_size=(4, 4)))&#10;print(box_plot)&#10;# box_plot.save(&quot;box_plot_sort1.pdf&quot;)&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 400x431.126 with 1 Axes&amp;gt;&#10;```&#10;&#10;```python&#10;df_group = df.groupby(df['class'], as_index=False).median()&#10;df_group = df_group.sort_values(by=&quot;value&quot;, ascending=False)&#10;&#10;df['class'] = pd.Categorical(df['class'], categories=df_group['class'].astype(str), ordered=True)&#10;&#10;box_plot = (ggplot(df, aes(x='class', y=&quot;value&quot;, fill=&quot;class&quot;))&#10;            + geom_boxplot(show_legend=False)&#10;            + scale_fill_hue(s=0.90, l=0.65, h=0.0417, color_space='husl')&#10;            + theme_matplotlib()&#10;            + theme(  # legend_position='none',&#10;    text=element_text(size=12, colour=&quot;black&quot;),&#10;    aspect_ratio=1.05,&#10;    dpi=100,&#10;    figure_size=(4, 4)))&#10;print(box_plot)&#10;# box_plot.save(&quot;box_plot_sort2.pdf&quot;)&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 400x431.126 with 1 Axes&amp;gt;&#10;```&#10;&#10;" />
+  </outline>
+  </body>
+</opml>

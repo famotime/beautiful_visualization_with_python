@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<opml version='2.0'>
+  <head>
+    <ownerEmail>
+      quincy.zou@gmail.com
+    </ownerEmail>
+  </head>
+  <body>
+  <outline text="图6-2-7 大数据的箱型图系列&#10;" _note="import pandas as pd&#10;import numpy as np&#10;import seaborn as sns&#10;import matplotlib.pyplot as plt&#10;from plotnine import *&#10;&#10;&#10;df = pd.read_csv('Distribution_LargeData.csv')&#10;df&#10;&#10;```&#10;```&#10;       class     value&#10;0          n  3.918358&#10;1          n  2.556974&#10;2          n  5.834538&#10;3          n  2.255196&#10;4          n  4.443104&#10;...      ...       ...&#10;111095    mm  4.007660&#10;111096    mm  4.104587&#10;111097    mm  3.726852&#10;111098    mm  4.238403&#10;111099    mm  3.501136&#10;&#10;[111100 rows x 2 columns]&#10;```&#10;">
+    <outline text="(a) 不同数据量的正态分布&#10;" _note="box_plot = (ggplot(df, aes(x='class', y=&quot;value&quot;, fill=&quot;class&quot;))&#10;            + geom_boxplot(show_legend=False)&#10;            + scale_fill_hue(s=0.90, l=0.65, h=0.0417, color_space='husl')&#10;            + theme_matplotlib()&#10;            + theme(  # legend_position='none',&#10;    aspect_ratio=1.05,&#10;    dpi=100,&#10;    figure_size=(4, 4)))&#10;print(box_plot)&#10;# box_plot.save(&quot;boxenplot3.pdf&quot;)&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 400x431.126 with 1 Axes&amp;gt;&#10;```&#10;" />
+    <outline text="(b) 相同大数据的不同数据分布&#10;" _note="df['class'] = pd.Categorical(df['class'], categories=[&quot;n&quot;, &quot;s&quot;, &quot;k&quot;, &quot;mm&quot;], ordered=True)&#10;fig = plt.figure(figsize=(4, 4.5))&#10;sns.boxenplot(x=&quot;class&quot;, y=&quot;value&quot;, data=df, linewidth=0.2,&#10;              palette=sns.husl_palette(4, s=0.90, l=0.65, h=0.0417))&#10;# fig.savefig('boxenplot2.pdf')&#10;&#10;```&#10;```&#10;&amp;lt;matplotlib.axes._subplots.AxesSubplot at 0x1eecc613970&amp;gt;&#10;```&#10;&#10;" />
+    </outline>
+  </outline>
+  </body>
+</opml>

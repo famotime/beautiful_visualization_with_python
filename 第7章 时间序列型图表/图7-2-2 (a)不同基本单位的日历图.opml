@@ -1,0 +1,12 @@
+<?xml version='1.0'?>
+<opml version='2.0'>
+  <head>
+    <ownerEmail>
+      quincy.zou@gmail.com
+    </ownerEmail>
+  </head>
+  <body>
+  <outline text="图7-2-2 (a)不同基本单位的日历图&#10;" _note="import pandas as pd&#10;import numpy as np&#10;from plotnine import *&#10;import matplotlib.pyplot as plt&#10;import calmap&#10;&#10;&#10;df = pd.read_csv('Calendar.csv', parse_dates=['date'])&#10;df.set_index('date', inplace=True)&#10;df&#10;&#10;```&#10;```&#10;               value&#10;date                &#10;2014-01-01  3.642283&#10;2014-01-02  4.150879&#10;2014-01-03  4.137854&#10;2014-01-04  4.781709&#10;2014-01-05  5.019245&#10;...              ...&#10;2017-12-27  4.073826&#10;2017-12-28  3.643086&#10;2017-12-29  3.810235&#10;2017-12-30  4.414853&#10;2017-12-31  5.041024&#10;&#10;[1461 rows x 1 columns]&#10;```&#10;&#10;```python&#10;fig, ax = calmap.calendarplot(df['value'],  fillcolor='grey',&#10;                              linecolor='w', linewidth=0.1, cmap='RdYlGn',&#10;                              yearlabel_kws={'color': 'black', 'fontsize': 12},&#10;                              fig_kws=dict(figsize=(10, 5), dpi=80))&#10;fig.colorbar(ax[0].get_children()[1], ax=ax.ravel().tolist())&#10;plt.show()&#10;# fig.savefig('日历图1.pdf')&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 800x400 with 5 Axes&amp;gt;&#10;```&#10;&#10;" />
+  </outline>
+  </body>
+</opml>

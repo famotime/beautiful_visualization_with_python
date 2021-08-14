@@ -1,0 +1,14 @@
+<?xml version='1.0'?>
+<opml version='2.0'>
+  <head>
+    <ownerEmail>
+      quincy.zou@gmail.com
+    </ownerEmail>
+  </head>
+  <body>
+  <outline text="图5-1-9 高密度散点图&#10;" _note="import pandas as pd&#10;from plotnine import *&#10;from sklearn.cluster import KMeans&#10;&#10;&#10;df = pd.read_csv('HighDensity_Scatter_Data.csv')&#10;df&#10;&#10;```&#10;```&#10;             x         y&#10;0    -0.603533 -0.412572&#10;1     0.138715  0.173584&#10;2     0.542221 -0.460046&#10;3    -1.172849 -0.143668&#10;4     0.214562 -0.275565&#10;...        ...       ...&#10;9995  7.770070  3.869518&#10;9996  0.490499  2.439776&#10;9997  4.142543  4.312815&#10;9998  7.028186  1.698366&#10;9999  3.166931  6.260376&#10;&#10;[10000 rows x 2 columns]&#10;```&#10;">
+    <outline text="(b) 带透明度设置的散点图&#10;" _note="base_plot1 = (ggplot(df, aes('x', 'y')) +&#10;              geom_point(colour=&quot;black&quot;, alpha=0.1) +&#10;              labs(x=&quot;Axis X&quot;, y=&quot;Axis Y&quot;) +&#10;              theme(&#10;    # text=element_text(size=15,face=&quot;plain&quot;,color=&quot;black&quot;),&#10;    axis_title=element_text(size=18, face=&quot;plain&quot;, color=&quot;black&quot;),&#10;    axis_text=element_text(size=16, face=&quot;plain&quot;, color=&quot;black&quot;),&#10;    aspect_ratio=1,&#10;    figure_size=(5, 5),&#10;    dpi=100&#10;)&#10;)&#10;print(base_plot1)&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 500x503.247 with 1 Axes&amp;gt;&#10;```&#10;&#10;```python&#10;# # (d) 带椭圆标定的聚类散点图&#10;```&#10;&#10;```python&#10;estimator = KMeans(n_clusters=2)  # 构造聚类器&#10;estimator.fit(df)  # 聚类&#10;df['label_pred'] = estimator.labels_  # 获取聚类标签&#10;centroids = estimator.cluster_centers_  # 获取聚类中心&#10;inertia = estimator.inertia_  # 获取聚类准则的总和&#10;&#10;&#10;# mydata为x和y两列数据组成，kmeans聚类算法&#10;# 将分类结果转变成类别变量(categorical variables)&#10;base_plot2 = (ggplot(df, aes('x', 'y', color='factor(label_pred)')) +&#10;              geom_point(alpha=0.2) +&#10;              # 绘制透明度为0.2 的散点图&#10;              stat_ellipse(aes(x='x', y='y', fill='factor(label_pred)'), geom=&quot;polygon&quot;, level=0.95, alpha=0.2) +&#10;              # 绘制椭圆标定不同类别，如果省略该语句，则绘制图3-1-7(c)&#10;              # 使用不同颜色标定不同数据类别&#10;              scale_color_manual(values=(&quot;# 00AFBB&quot;, &quot;# FC4E07&quot;)) +&#10;              # 使用不同颜色标定不同椭类别&#10;              scale_fill_manual(values=(&quot;# 00AFBB&quot;, &quot;# FC4E07&quot;)) +&#10;              theme(&#10;    # text=element_text(size=15,face=&quot;plain&quot;,color=&quot;black&quot;),&#10;    axis_title=element_text(size=18, face=&quot;plain&quot;, color=&quot;black&quot;),&#10;    axis_text=element_text(size=16, face=&quot;plain&quot;, color=&quot;black&quot;),&#10;    aspect_ratio=1,&#10;    figure_size=(5, 5),&#10;    dpi=100&#10;)&#10;)&#10;print(base_plot2)&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 500x503.247 with 1 Axes&amp;gt;&#10;```&#10;&#10;" />
+    </outline>
+  </outline>
+  </body>
+</opml>

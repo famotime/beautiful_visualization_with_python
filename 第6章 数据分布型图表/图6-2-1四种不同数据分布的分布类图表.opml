@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<opml version='2.0'>
+  <head>
+    <ownerEmail>
+      quincy.zou@gmail.com
+    </ownerEmail>
+  </head>
+  <body>
+  <outline text="图6-2-1四种不同数据分布的分布类图表&#10;" _note="import pandas as pd&#10;from plotnine import *&#10;&#10;&#10;df = pd.read_csv('Distribution_Data.csv')&#10;df['class'] = pd.Categorical(df['class'], categories=[&quot;n&quot;, &quot;s&quot;, &quot;k&quot;, &quot;mm&quot;], ordered=True)&#10;&#10;```&#10;">
+    <outline text="核密度估计图&#10;" _note="density_plot = (ggplot(df, aes(x=&quot;value&quot;, fill=&quot;class&quot;))&#10;                + geom_density(alpha=1)&#10;                + facet_grid('class~.')&#10;                # +scale_fill_brewer(palette  =6,type =&quot;qualitative&quot;))&#10;                + scale_fill_hue(s=0.90, l=0.65, h=0.0417, color_space='husl')&#10;                + theme_light()&#10;                + theme(aspect_ratio=0.25,&#10;                        dpi=100,&#10;                        figure_size=(3, 4)))&#10;print(density_plot)&#10;# density_plot.save(&quot;density_plot.pdf&quot;)&#10;&#10;```&#10;```&#10;C:\QMDownload\anaconda\lib\site-packages\plotnine\facets\facet_grid.py:136: FutureWarning: Index.__and__ operating as a set operation is deprecated, in the future this will be a logical operation matching Series.__and__.  Use index.intersection(other) instead&#10;C:\QMDownload\anaconda\lib\site-packages\plotnine\facets\facet_grid.py:137: FutureWarning: Index.__and__ operating as a set operation is deprecated, in the future this will be a logical operation matching Series.__and__.  Use index.intersection(other) instead&#10;&#10;```&#10;" />
+    <outline text="统计直方图&#10;" _note="histogram_plot = (ggplot(df, aes(x=&quot;value&quot;, fill=&quot;class&quot;))&#10;                  + geom_histogram(alpha=1, colour=&quot;black&quot;, bins=30, size=0.2)&#10;                  + facet_grid('class~.')&#10;                  + scale_fill_hue(s=0.90, l=0.65, h=0.0417,&#10;                                   color_space='husl')&#10;                  + theme_light()&#10;                  + theme(aspect_ratio=0.25,&#10;                          dpi=100,&#10;                          figure_size=(3, 4)))&#10;print(histogram_plot)&#10;# histogram_plot.save(&quot;histogram_plot.pdf&quot;)&#10;&#10;```&#10;```&#10;C:\QMDownload\anaconda\lib\site-packages\plotnine\facets\facet_grid.py:136: FutureWarning: Index.__and__ operating as a set operation is deprecated, in the future this will be a logical operation matching Series.__and__.  Use index.intersection(other) instead&#10;C:\QMDownload\anaconda\lib\site-packages\plotnine\facets\facet_grid.py:137: FutureWarning: Index.__and__ operating as a set operation is deprecated, in the future this will be a logical operation matching Series.__and__.  Use index.intersection(other) instead&#10;&#10;```&#10;&#10;" />
+    </outline>
+  </outline>
+  </body>
+</opml>

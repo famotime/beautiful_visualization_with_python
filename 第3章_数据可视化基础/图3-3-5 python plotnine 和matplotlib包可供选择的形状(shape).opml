@@ -1,0 +1,12 @@
+<?xml version='1.0'?>
+<opml version='2.0'>
+  <head>
+    <ownerEmail>
+      quincy.zou@gmail.com
+    </ownerEmail>
+  </head>
+  <body>
+  <outline text="图3-3-5 python plotnine 和matplotlib包可供选择的形状(shape)&#10;" _note="import numpy as np&#10;import matplotlib.pyplot as plt&#10;from matplotlib.lines import Line2D&#10;&#10;&#10;points = np.ones(3)  # Draw 3 points for each line&#10;text_style = dict(horizontalalignment='right', verticalalignment='center',&#10;                  fontsize=12, fontdict={'family': 'monospace'})&#10;marker_style = dict(linestyle=':', color='k', markersize=10,&#10;                    mfc=&quot;C0&quot;, mec=&quot;C0&quot;)&#10;&#10;&#10;def format_axes(ax):&#10;    ax.margins(0.2)&#10;    ax.set_axis_off()&#10;    ax.invert_yaxis()&#10;&#10;&#10;def nice_repr(text):&#10;    return repr(text).lstrip('u')&#10;&#10;&#10;def math_repr(text):&#10;    tx = repr(text).lstrip('u').strip(&quot;'&quot;).strip(&quot;$&quot;)&#10;    return r&quot;'\${}\$'&quot;.format(tx)&#10;&#10;&#10;def split_list(a_list):&#10;    i_half = len(a_list) // 2&#10;    return (a_list[:i_half], a_list[i_half:])&#10;&#10;fig, axes = plt.subplots(ncols=2)&#10;fig.suptitle('un-filled markers', fontsize=14)&#10;&#10;# Filter out filled markers and marker settings that do nothing.&#10;unfilled_markers = [m for m, func in Line2D.markers.items()&#10;                    if func != 'nothing' and m not in Line2D.filled_markers]&#10;&#10;for ax, markers in zip(axes, split_list(unfilled_markers)):&#10;    for y, marker in enumerate(markers):&#10;        ax.text(-0.5, y, nice_repr(marker), **text_style)&#10;        ax.plot(y * points, marker=marker, **marker_style)&#10;        format_axes(ax)&#10;&#10;plt.show()&#10;fig.savefig('Markers_1.pdf')&#10;&#10;&#10;fig, axes = plt.subplots(ncols=2)&#10;for ax, markers in zip(axes, split_list(Line2D.filled_markers)):&#10;    for y, marker in enumerate(markers):&#10;        ax.text(-0.5, y, nice_repr(marker), **text_style)&#10;        ax.plot(y * points, marker=marker, **marker_style)&#10;        format_axes(ax)&#10;fig.suptitle('filled markers', fontsize=14)&#10;&#10;plt.show()&#10;&#10;# fig.savefig('Markers_2.pdf')&#10;```&#10;```&#10;&amp;lt;Figure size 432x288 with 2 Axes&amp;gt;&#10;```&#10;&#10;```python&#10;&#10;```&#10;&#10;" />
+  </outline>
+  </body>
+</opml>

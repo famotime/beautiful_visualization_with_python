@@ -1,0 +1,12 @@
+<?xml version='1.0'?>
+<opml version='2.0'>
+  <head>
+    <ownerEmail>
+      quincy.zou@gmail.com
+    </ownerEmail>
+  </head>
+  <body>
+  <outline text="图3-8-2 多数据系列雷达图系列&#10;" _note="import numpy as np&#10;import matplotlib.pyplot as plt&#10;import pandas as pd&#10;from math import pi&#10;from matplotlib.pyplot import figure, show, rc&#10;plt.rcParams[&quot;patch.force_edgecolor&quot;] = True&#10;&#10;&#10;df = pd.DataFrame(dict(categories=['var1', 'var2', 'var3', 'var4', 'var5'],&#10;                       group_A=[38.0, 29, 8, 7, 28],&#10;                       group_B=[1.5, 10, 39, 31, 15]))&#10;&#10;N = df.shape[0]&#10;&#10;angles = [n / float(N) * 2 * pi for n in range(N)]&#10;angles += angles[:1]&#10;df&#10;&#10;```&#10;```&#10;  categories  group_A  group_B&#10;0       var1     38.0      1.5&#10;1       var2     29.0     10.0&#10;2       var3      8.0     39.0&#10;3       var4      7.0     31.0&#10;4       var5     28.0     15.0&#10;```&#10;&#10;```python&#10;fig = figure(figsize=(4, 4), dpi=90)&#10;ax = fig.add_axes([0.1, 0.1, 0.6, 0.6], polar=True)&#10;&#10;ax.set_theta_offset(pi / 2)&#10;ax.set_theta_direction(-1)&#10;ax.set_rlabel_position(0)&#10;&#10;plt.xticks(angles[:-1], df['categories'], color=&quot;black&quot;, size=12)&#10;plt.ylim(0, 45)&#10;plt.yticks(np.arange(10, 50, 10), color=&quot;black&quot;, size=12,&#10;           verticalalignment='center', horizontalalignment='right')&#10;&#10;plt.grid(which='major', axis=&quot;x&quot;, linestyle='-',&#10;         linewidth='0.5', color='gray', alpha=0.5)&#10;plt.grid(which='major', axis=&quot;y&quot;, linestyle='-',&#10;         linewidth='0.5', color='gray', alpha=0.5)&#10;&#10;values = df['group_A'].values.flatten().tolist()&#10;values += values[:1]&#10;ax.fill(angles, values, '# 7FBC41', alpha=0.3)&#10;ax.plot(angles, values, marker='o', markerfacecolor='# 7FBC41',&#10;        markersize=8, color='k', linewidth=0.25, label=&quot;group A&quot;)&#10;&#10;values = df['group_B'].values.flatten().tolist()&#10;values += values[:1]&#10;ax.fill(angles, values, '# C51B7D', alpha=0.3)&#10;ax.plot(angles, values, marker='o', markerfacecolor='# C51B7D',&#10;        markersize=8, color='k', linewidth=0.25, label=&quot;group B&quot;)&#10;&#10;plt.legend(loc=&quot;center&quot;, bbox_to_anchor=(1.25, 0, 0, 1))&#10;&#10;# fig.savefig(&quot;雷达图2.pdf&quot;)&#10;&#10;```&#10;```&#10;&amp;lt;matplotlib.legend.Legend at 0x21a640bacd0&amp;gt;&#10;```&#10;&#10;" />
+  </outline>
+  </body>
+</opml>

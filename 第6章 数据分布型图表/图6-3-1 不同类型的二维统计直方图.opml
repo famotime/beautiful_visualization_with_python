@@ -1,0 +1,16 @@
+<?xml version='1.0'?>
+<opml version='2.0'>
+  <head>
+    <ownerEmail>
+      quincy.zou@gmail.com
+    </ownerEmail>
+  </head>
+  <body>
+  <outline text="图6-3-1 不同类型的二维统计直方图&#10;" _note="import pandas as pd&#10;import numpy as np&#10;import seaborn as sns&#10;import matplotlib.pyplot as plt&#10;from plotnine import *&#10;&#10;&#10;N = 5000&#10;x1 = np.random.normal(1.5, 1, N)&#10;y1 = np.random.normal(1.6, 1, N)&#10;x2 = np.random.normal(2.5, 1, N)&#10;y2 = np.random.normal(2.2, 1, N)&#10;&#10;df = pd.DataFrame({'x': np.append(x1, x2), 'y': np.append(y1, y2)})&#10;df&#10;&#10;```&#10;```&#10;             x         y&#10;0     3.083027  1.149312&#10;1     1.178197  3.219723&#10;2     0.865739  1.379744&#10;3     1.461819  1.573674&#10;4     0.200404  1.954290&#10;...        ...       ...&#10;9995  1.507744  0.330968&#10;9996  2.057257  2.058982&#10;9997  2.287159  1.892364&#10;9998  2.226764  3.920841&#10;9999  3.412418  1.930093&#10;&#10;[10000 rows x 2 columns]&#10;```&#10;">
+    <outline text="(a) 方块形&#10;" _note="bin_plot = (ggplot(df, aes('x', 'y'))&#10;            + stat_bin2d(bins=40)&#10;            + scale_fill_cmap(name='Spectral_r')&#10;            + theme_matplotlib()&#10;            + theme(  # legend_position='none',&#10;    text=element_text(size=12, colour=&quot;black&quot;),&#10;    aspect_ratio=1,&#10;    dpi=100,&#10;    figure_size=(4, 4)))&#10;print(bin_plot)&#10;&#10;# bin_plot.save(&quot;bin_plot.pdf&quot;)&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 400x410.596 with 1 Axes&amp;gt;&#10;```&#10;" />
+    <outline text="(a) 方块形&#10;" _note="fig = plt.figure(figsize=[3, 2.7], dpi=130)&#10;h = plt.hist2d(df['x'], df['y'], bins=40, cmap=plt.cm.Spectral_r, cmin=1)&#10;ax = plt.gca()&#10;ax.set_xlabel('x')&#10;ax.set_ylabel('y')&#10;cbar = plt.colorbar(h[3])&#10;cbar.set_label('count')&#10;cbar.set_ticks(np.linspace(0, 60, 7))&#10;plt.show()&#10;# fig.savefig('bin_plot2.pdf')&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 390x351 with 2 Axes&amp;gt;&#10;```&#10;" />
+    <outline text="(b)六方形&#10;" _note="fig, ax = plt.subplots(figsize=[3, 2.7], dpi=130)&#10;im = ax.hexbin(df['x'], df['y'], cmap=plt.cm.Spectral_r,&#10;               gridsize=(20, 20), mincnt=1)&#10;ax.set_xlabel('x')&#10;ax.set_ylabel('y')&#10;# ax.set_yticlabels()&#10;cbar = fig.colorbar(im, ax=ax)&#10;cbar.set_label('count')&#10;# fig.savefig('hexbin_plot.pdf')&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 390x351 with 2 Axes&amp;gt;&#10;```&#10;&#10;" />
+    </outline>
+  </outline>
+  </body>
+</opml>

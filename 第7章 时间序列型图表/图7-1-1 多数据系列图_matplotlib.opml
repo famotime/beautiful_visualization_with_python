@@ -1,0 +1,16 @@
+<?xml version='1.0'?>
+<opml version='2.0'>
+  <head>
+    <ownerEmail>
+      quincy.zou@gmail.com
+    </ownerEmail>
+  </head>
+  <body>
+  <outline text="图7-1-1 多数据系列图_matplotlib&#10;" _note="import seaborn as sns&#10;import pandas as pd&#10;import matplotlib.pyplot as plt&#10;from datetime import datetime&#10;&#10;&#10;df = pd.read_csv('Line_Data.csv', index_col=0)&#10;df.index = [datetime.strptime(d, '%Y/%m/%d').date() for d in df.index]&#10;df&#10;&#10;```&#10;```&#10;              AMZN    AAPL&#10;2000-01-01   69.00   25.94&#10;2000-02-01   67.00   28.66&#10;2000-03-01   55.00   33.95&#10;2000-04-01   48.00   31.01&#10;2000-05-01   36.00   21.00&#10;...            ...     ...&#10;2009-10-01  136.00  188.50&#10;2009-11-01  134.52  199.91&#10;2009-12-01  125.00  210.73&#10;2010-01-01  118.00  192.06&#10;2010-02-01  129.00  204.62&#10;&#10;[122 rows x 2 columns]&#10;```&#10;">
+    <outline text="图611 多数据系列图. (a)折线图&#10;" _note="fig = plt.figure(figsize=(5, 4), dpi=100)&#10;plt.plot(df.index, df.AMZN, color='# F94306', label='AMZN')&#10;plt.plot(df.index, df.AAPL, color='# 06BCF9', label='AAPL')&#10;plt.xlabel(&quot;Year&quot;)&#10;plt.ylabel(&quot;Value&quot;)&#10;plt.legend(loc='upper left', edgecolor='none', facecolor='none')&#10;plt.show()&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 500x400 with 1 Axes&amp;gt;&#10;```&#10;" />
+    <outline text="图611 多数据系列图.(b)面积图.&#10;" _note="columns = df.columns&#10;colors = [&quot;# F94306&quot;, &quot;# 06BCF9&quot;]&#10;fig = plt.figure(figsize=(5, 4), dpi=100)&#10;plt.fill_between(df.index.values, y1=df.AMZN.values, y2=0,&#10;                 label=columns[1], alpha=0.75, facecolor=colors[0], linewidth=1, edgecolor='k')&#10;plt.fill_between(df.index.values, y1=df.AAPL.values, y2=0,&#10;                 label=columns[0], alpha=0.75, facecolor=colors[1], linewidth=1, edgecolor='k')&#10;plt.xlabel(&quot;Year&quot;)&#10;plt.ylabel(&quot;Value&quot;)&#10;plt.legend(loc='upper left', edgecolor='none', facecolor='none')&#10;plt.show()&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 500x400 with 1 Axes&amp;gt;&#10;```&#10;" />
+    <outline text="图613 夹层填充面积图. (a)单色&#10;" _note="df = pd.read_csv('Line_Data.csv')&#10;&#10;# df['date'].map(lambda x:datetime.datetime.strptime(x, '%Y/%m/%d').date())&#10;df['date'] = [datetime.strptime(d, '%Y/%m/%d').date() for d in df['date']]&#10;&#10;df['ymin'] = df[['AMZN', 'AAPL']].apply(lambda x: x.min(), axis=1)&#10;df['ymax'] = df[['AMZN', 'AAPL']].apply(lambda x: x.max(), axis=1)&#10;&#10;fig = plt.figure(figsize=(5, 4), dpi=100)&#10;plt.fill_between(df.date.values, y1=df.ymax.values, y2=df.ymin.values,&#10;                 alpha=0.15, facecolor='black', linewidth=1, edgecolor='k')&#10;plt.plot(df.date, df.AMZN, color='# F94306', label='AMZN')&#10;plt.plot(df.date, df.AAPL, color='# 06BCF9', label='AAPL')&#10;plt.xlabel(&quot;Year&quot;)&#10;plt.ylabel(&quot;Value&quot;)&#10;plt.legend(loc='upper left', edgecolor='none', facecolor='none')&#10;plt.show()&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 500x400 with 1 Axes&amp;gt;&#10;```&#10;&#10;" />
+    </outline>
+  </outline>
+  </body>
+</opml>

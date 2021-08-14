@@ -1,0 +1,12 @@
+<?xml version='1.0'?>
+<opml version='2.0'>
+  <head>
+    <ownerEmail>
+      quincy.zou@gmail.com
+    </ownerEmail>
+  </head>
+  <body>
+  <outline text="图5-1-8 Q-Q图和P-P图的对比分析&#10;" _note="import numpy as np&#10;import pandas as pd&#10;from plotnine import *&#10;&#10;&#10;df=pd.DataFrame(dict(x=np.random.normal(loc=10,scale=1,size=250)))&#10;&#10;base_plot=(ggplot(df, aes(sample = 'x'))+&#10;  geom_qq(shape='o',fill=&quot;none&quot;)+&#10;  geom_qq_line()+&#10;   theme(&#10;       # text=element_text(size=15,face=&quot;plain&quot;,color=&quot;black&quot;),&#10;       axis_title=element_text(size=18,face=&quot;plain&quot;,color=&quot;black&quot;),&#10;       axis_text = element_text(size=16,face=&quot;plain&quot;,color=&quot;black&quot;),&#10;       aspect_ratio =1.05,&#10;       figure_size = (5,5),&#10;       dpi = 100&#10;       )&#10;  )&#10;print(base_plot)&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 500x528.409 with 1 Axes&amp;gt;&#10;```&#10;&#10;```python&#10;&#10;```&#10;&#10;" />
+  </outline>
+  </body>
+</opml>

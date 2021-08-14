@@ -1,0 +1,16 @@
+<?xml version='1.0'?>
+<opml version='2.0'>
+  <head>
+    <ownerEmail>
+      quincy.zou@gmail.com
+    </ownerEmail>
+  </head>
+  <body>
+  <outline text="图5-6-1 不同类型的相关系数热力图&#10;" _note="import numpy as np&#10;import pandas as pd&#10;from plotnine import *&#10;from plotnine.data import mtcars&#10;&#10;&#10;mat_corr = np.round(mtcars.corr(), 1).reset_index()&#10;mydata = pd.melt(mat_corr, id_vars='index', var_name='var', value_name='value')&#10;mydata['AbsValue'] = np.abs(mydata.value)&#10;mydata&#10;&#10;```&#10;```&#10;    index   var  value  AbsValue&#10;0     mpg   mpg    1.0       1.0&#10;1     cyl   mpg   -0.9       0.9&#10;2    disp   mpg   -0.8       0.8&#10;3      hp   mpg   -0.8       0.8&#10;4    drat   mpg    0.7       0.7&#10;..    ...   ...    ...       ...&#10;116  qsec  carb   -0.7       0.7&#10;117    vs  carb   -0.6       0.6&#10;118    am  carb    0.1       0.1&#10;119  gear  carb    0.3       0.3&#10;120  carb  carb    1.0       1.0&#10;&#10;[121 rows x 4 columns]&#10;```&#10;">
+    <outline text="(b) 气泡图&#10;" _note="base_plot = (ggplot(mydata, aes(x='index', y='var', fill='value', size='AbsValue')) +&#10;             geom_point(shape='o', colour=&quot;black&quot;) +&#10;             scale_size_area(max_size=11, guide=False) +&#10;             scale_fill_cmap(name='RdYlBu_r') +&#10;             coord_equal() +&#10;             theme(dpi=100, figure_size=(4, 4)))&#10;print(base_plot)&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 400x402.597 with 1 Axes&amp;gt;&#10;```&#10;" />
+    <outline text="(c) 方块图&#10;" _note="base_plot = (ggplot(mydata, aes(x='index', y='var', fill='value', size='AbsValue')) +&#10;             geom_point(shape='s', colour=&quot;black&quot;) +&#10;             scale_size_area(max_size=10, guide=False) +&#10;             scale_fill_cmap(name='RdYlBu_r') +&#10;             coord_equal() +&#10;             theme(dpi=100, figure_size=(4, 4)))&#10;print(base_plot)&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 400x402.597 with 1 Axes&amp;gt;&#10;```&#10;" />
+    <outline text="(f) 带标签的热力图&#10;" _note="base_plot = (ggplot(mydata, aes(x='index', y='var', fill='value', label='value')) +&#10;             geom_tile(colour=&quot;black&quot;) +&#10;             geom_text(size=8, colour=&quot;white&quot;) +&#10;             scale_fill_cmap(name='RdYlBu_r') +&#10;             coord_equal() +&#10;             theme(dpi=100, figure_size=(4, 4)))&#10;print(base_plot)&#10;&#10;```&#10;```&#10;&amp;lt;Figure size 400x402.597 with 1 Axes&amp;gt;&#10;```&#10;&#10;" />
+    </outline>
+  </outline>
+  </body>
+</opml>
